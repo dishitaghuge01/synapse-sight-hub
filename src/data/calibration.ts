@@ -7,3 +7,13 @@ export const CALIBRATION = {
   model: "CNN-HSI v1.4.2",
   referenceAgeLimit: "8 h",
 } as const;
+
+export const RECALIBRATION_STEPS = [
+  "Place dark cap and capture dark reference",
+  "Place white reference tile and capture white reference",
+  "Run flat-field check",
+  "Run check tile",
+  "Confirm and sign off",
+] as const;
+
+export const CALIBRATION_COMPLETE = "Calibration complete (prototype, no data captured)";

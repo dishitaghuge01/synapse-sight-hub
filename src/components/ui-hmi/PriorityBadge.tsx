@@ -18,7 +18,7 @@ const LABELS: Record<AlarmPriority, string> = {
   low: "Low",
 };
 
-export function PriorityBadge({ priority, className }: { priority: AlarmPriority; className?: string }) {
+export function PriorityBadge({ priority, className, label }: { priority: AlarmPriority; className?: string; label?: string }) {
   const Icon = ICONS[priority];
   return (
     <span
@@ -29,7 +29,7 @@ export function PriorityBadge({ priority, className }: { priority: AlarmPriority
       )}
     >
       <Icon className="h-3 w-3" aria-hidden />
-      {LABELS[priority]}
+      {label ?? LABELS[priority]}
     </span>
   );
 }

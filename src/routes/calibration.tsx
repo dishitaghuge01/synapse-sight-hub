@@ -1,3 +1,3 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PlaceholderPage } from "@/pages/PlaceholderPage";
-export const Route = createFileRoute("/calibration")({ head: () => ({ meta: [{ title: "Calibration | Synapse Inspect" }, { name: "description", content: "Inspection calibration status." }, { property: "og:title", content: "Calibration | Synapse Inspect" }, { property: "og:description", content: "Inspection calibration status." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <PlaceholderPage title="Calibration" /> });
+import { CalibrationPage } from "@/pages/CalibrationPage";
+export const Route = createFileRoute("/calibration")({ head: () => ({ meta: [{ title: "Calibration | Synapse Inspect" }, { name: "description", content: "Inspection calibration status." }, { property: "og:title", content: "Calibration | Synapse Inspect" }, { property: "og:description", content: "Inspection calibration status." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: CalibrationPage });
