@@ -18,8 +18,8 @@ export function CalibrationPage() {
   return <div className="grid grid-cols-12 gap-3">
     <div className="col-span-5 space-y-3">
       <PanelCard title="Calibration status">
-        <ValueRow label="Dark reference"><span className="num">age {CALIBRATION.darkReference.age}</span><PriorityBadge priority="medium" className="normal-case" /></ValueRow>
-        <ValueRow label="White reference"><span className="num">age {CALIBRATION.whiteReference.age}</span><PriorityBadge priority="medium" className="normal-case" /></ValueRow>
+        <ValueRow label="Dark reference"><span className="num">age {CALIBRATION.darkReference.age}</span><PriorityBadge priority="medium" label={CALIBRATION.darkReference.state} /></ValueRow>
+        <ValueRow label="White reference"><span className="num">age {CALIBRATION.whiteReference.age}</span><PriorityBadge priority="medium" label={CALIBRATION.whiteReference.state} /></ValueRow>
         <ValueRow label="Flat-field"><StatusChip status="normal" label={CALIBRATION.flatField.state} /><span className="num">{CALIBRATION.flatField.takenAt}</span></ValueRow>
         <ValueRow label="Check tile"><StatusChip status="normal" label={CALIBRATION.checkTile} /></ValueRow>
         <ValueRow label="Reference age limit"><span className="num">{CALIBRATION.referenceAgeLimit}</span></ValueRow>

@@ -1,3 +1,3 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PlaceholderPage } from "@/pages/PlaceholderPage";
-export const Route = createFileRoute("/batches")({ head: () => ({ meta: [{ title: "Batches | Synapse Inspect" }, { name: "description", content: "Inspection batch records." }, { property: "og:title", content: "Batches | Synapse Inspect" }, { property: "og:description", content: "Inspection batch records." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <PlaceholderPage title="Batches" /> });
+import { BatchesPage } from "@/pages/BatchesPage";
+export const Route = createFileRoute("/batches")({ head: () => ({ meta: [{ title: "Batches | Synapse Inspect" }, { name: "description", content: "Inspection batch records." }, { property: "og:title", content: "Batches | Synapse Inspect" }, { property: "og:description", content: "Inspection batch records." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: BatchesPage });
