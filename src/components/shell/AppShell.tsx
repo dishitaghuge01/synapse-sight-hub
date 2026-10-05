@@ -22,6 +22,7 @@ import { PriorityBadge } from "@/components/ui-hmi/PriorityBadge";
 import { RoleBadge } from "@/components/ui-hmi/RoleBadge";
 import { StatusChip } from "@/components/ui-hmi/StatusChip";
 import { Button } from "@/components/ui/button";
+import { ItemInspectorProvider } from "@/contexts/ItemInspectorContext";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -171,13 +172,15 @@ function LeftNav() {
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-screen min-w-[1024px] flex-col bg-background text-foreground">
-      <TopBar />
-      <AlarmBanner />
-      <div className="flex min-h-0 flex-1">
-        <LeftNav />
-        <main className="min-w-0 flex-1 overflow-auto p-3">{children}</main>
+    <ItemInspectorProvider>
+      <div className="flex h-screen min-w-[1024px] flex-col bg-background text-foreground">
+        <TopBar />
+        <AlarmBanner />
+        <div className="flex min-h-0 flex-1">
+          <LeftNav />
+          <main className="min-w-0 flex-1 overflow-auto p-3">{children}</main>
+        </div>
       </div>
-    </div>
+    </ItemInspectorProvider>
   );
 }
