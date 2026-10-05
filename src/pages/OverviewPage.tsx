@@ -10,6 +10,7 @@ import { PanelCard } from "@/components/ui-hmi/PanelCard";
 import { PriorityBadge } from "@/components/ui-hmi/PriorityBadge";
 import { StatusChip } from "@/components/ui-hmi/StatusChip";
 import { TrendChart } from "@/components/ui-hmi/TrendChart";
+import { Button } from "@/components/ui/button";
 
 const ACTIVE_ALARMS = ALARMS.filter((alarm) => alarm.state.startsWith("Active"));
 
@@ -130,18 +131,19 @@ export function OverviewPage() {
       <PanelCard title="Subsystem health" className="col-span-5">
         <div className="grid grid-cols-2 gap-2">
           {SUBSYSTEMS.map((system) => (
-            <button
+            <Button
               key={system.name}
               type="button"
               onClick={() => navigate({ to: "/rig" })}
-              className="min-h-20 rounded-sm border border-border bg-card p-2 text-left hover:bg-accent"
+              variant="outline"
+              className="block min-h-20 whitespace-normal rounded-sm border-border bg-card p-2 text-left shadow-none hover:bg-accent"
             >
               <div className="mb-1.5 flex items-center justify-between gap-2">
                 <span className="text-xs font-semibold text-foreground">{system.name}</span>
                 <StatusChip status={system.status} label={system.status === "normal" ? "Normal" : "Warning"} />
               </div>
               <p className="text-[11px] leading-4 text-muted-foreground">{system.detail}</p>
-            </button>
+            </Button>
           ))}
         </div>
       </PanelCard>
