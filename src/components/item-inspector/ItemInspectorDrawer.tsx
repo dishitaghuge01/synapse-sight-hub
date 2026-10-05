@@ -45,7 +45,7 @@ export function ItemInspectorDrawer({ itemId, onClose }: { itemId: string | null
           </section>
 
           <section className="grid grid-cols-2 gap-2">
-            {IMAGES.map((image) => <div key={image.label} className="overflow-hidden rounded-sm border border-border bg-viewport"><div className="num px-2 py-1 text-[10px] text-primary-foreground">{image.label}</div><SyntheticFrame mode={image.mode} overlay={image.overlay} className="h-24" /></div>)}
+            {IMAGES.map((image) => <div key={image.label} className="overflow-hidden rounded-sm border border-border bg-viewport"><div className="num px-2 py-1 text-[10px] text-primary-foreground">{image.label}</div><SyntheticFrame mode={image.mode} overlay={image.overlay ?? false} className="h-24" /></div>)}
           </section>
 
           <section><h3 className="font-semibold uppercase tracking-wide">Score</h3><p className="num mt-1">Score {ITEM_DETAIL.score.toFixed(2)}, threshold {ITEM_DETAIL.threshold.toFixed(2)}</p><AnalogBar value={ITEM_DETAIL.score} warning={ITEM_DETAIL.threshold} alarm={ITEM_DETAIL.threshold} max={1} /></section>
