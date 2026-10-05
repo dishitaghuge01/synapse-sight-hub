@@ -11,7 +11,6 @@ import {
   FileClock,
   FlaskConical,
   Gauge,
-  Layers,
   LayoutDashboard,
   Lock,
   Package,
