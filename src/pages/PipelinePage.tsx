@@ -5,15 +5,12 @@ import { PIPELINE_BRANCHES, PIPELINE_FOOTER, PIPELINE_STAGES, PIPELINE_TOTAL_MS 
 import { cn } from "@/lib/utils";
 
 const FLOW: readonly { stage: PipelineStage; grid: string }[] = [
-  { stage: PIPELINE_STAGES[0], grid: "col-start-1 row-span-2" },
-  { stage: PIPELINE_STAGES[1], grid: "col-start-2 row-span-2" },
-  { stage: PIPELINE_STAGES[2], grid: "col-start-3 row-start-1" },
-  { stage: PIPELINE_STAGES[3], grid: "col-start-3 row-start-2" },
-  { stage: PIPELINE_STAGES[4], grid: "col-start-4 row-span-2" },
-  { stage: PIPELINE_STAGES[5], grid: "col-start-5 row-span-2" },
-  { stage: PIPELINE_STAGES[6], grid: "col-start-6 row-span-2" },
-  { stage: PIPELINE_STAGES[7], grid: "col-start-7 row-span-2" },
-] as const;
+  "col-start-1 row-span-2", "col-start-2 row-span-2", "col-start-3 row-start-1", "col-start-3 row-start-2",
+  "col-start-4 row-span-2", "col-start-5 row-span-2", "col-start-6 row-span-2", "col-start-7 row-span-2",
+].flatMap((grid, index) => {
+  const stage = PIPELINE_STAGES[index];
+  return stage ? [{ stage, grid }] : [];
+});
 
 function StageBox({ stage, branch }: { stage: PipelineStage; branch?: string }) {
   return <div className="flex min-h-20 flex-col justify-center border border-border bg-secondary px-2 py-2 text-center">
