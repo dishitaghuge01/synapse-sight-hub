@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PlaceholderPage } from "@/pages/PlaceholderPage";
+export const Route = createFileRoute("/live")({ head: () => ({ meta: [{ title: "Live Inspection | Synapse Inspect" }, { name: "description", content: "Live inspection workspace." }, { property: "og:title", content: "Live Inspection | Synapse Inspect" }, { property: "og:description", content: "Live inspection workspace." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <PlaceholderPage title="Live Inspection" /> });

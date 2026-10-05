@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PlaceholderPage } from "@/pages/PlaceholderPage";
+export const Route = createFileRoute("/pipeline")({ head: () => ({ meta: [{ title: "Pipeline and Latency | Synapse Inspect" }, { name: "description", content: "Processing pipeline and latency." }, { property: "og:title", content: "Pipeline and Latency | Synapse Inspect" }, { property: "og:description", content: "Processing pipeline and latency." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <PlaceholderPage title="Pipeline and Latency" /> });
