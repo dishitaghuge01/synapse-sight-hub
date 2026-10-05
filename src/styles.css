@@ -1,6 +1,11 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -59,42 +64,58 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-viewport: var(--viewport);
+  --color-alarm-critical: var(--alarm-critical);
+  --color-alarm-high: var(--alarm-high);
+  --color-alarm-medium: var(--alarm-medium);
+  --color-alarm-medium-foreground: var(--alarm-medium-foreground);
+  --color-alarm-low: var(--alarm-low);
+  --color-status-normal: var(--status-normal);
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --radius: 0.25rem;
+  --background: oklch(0.935 0.004 247.9);
+  --foreground: oklch(0.27 0.02 254);
+  --card: oklch(0.977 0.002 247.8);
+  --card-foreground: oklch(0.27 0.02 254);
+  --popover: oklch(0.977 0.002 247.8);
+  --popover-foreground: oklch(0.27 0.02 254);
+  --primary: oklch(0.48 0.13 255);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.92 0.005 247.9);
+  --secondary-foreground: oklch(0.27 0.02 254);
+  --muted: oklch(0.92 0.005 247.9);
+  --muted-foreground: oklch(0.46 0.025 252);
+  --accent: oklch(0.91 0.006 247.9);
+  --accent-foreground: oklch(0.27 0.02 254);
+  --destructive: oklch(0.53 0.19 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.83 0.01 250);
+  --input: oklch(0.83 0.01 250);
+  --ring: oklch(0.48 0.13 255);
+  --viewport: oklch(0.17 0.006 250);
+  --alarm-critical: oklch(0.53 0.19 27);
+  --alarm-high: oklch(0.6 0.19 44);
+  --alarm-medium: oklch(0.79 0.16 82);
+  --alarm-medium-foreground: oklch(0.27 0.02 254);
+  --alarm-low: oklch(0.55 0.1 205);
+  --status-normal: oklch(0.6 0.01 250);
+  --chart-1: oklch(0.48 0.13 255);
+  --chart-2: oklch(0.55 0.1 205);
+  --chart-3: oklch(0.46 0.025 252);
+  --chart-4: oklch(0.79 0.16 82);
+  --chart-5: oklch(0.6 0.19 44);
+  --sidebar: oklch(0.977 0.002 247.8);
+  --sidebar-foreground: oklch(0.27 0.02 254);
+  --sidebar-primary: oklch(0.48 0.13 255);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.92 0.005 247.9);
+  --sidebar-accent-foreground: oklch(0.27 0.02 254);
+  --sidebar-border: oklch(0.83 0.01 250);
+  --sidebar-ring: oklch(0.48 0.13 255);
 }
 
 .dark {
@@ -141,4 +162,18 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+@utility num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes conveyor-move {
+  from { transform: translateX(0); }
+  to { transform: translateX(1000px); }
+}
+
+@utility conveyor-item {
+  animation: conveyor-move 16s linear infinite;
 }
