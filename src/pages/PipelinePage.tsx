@@ -12,7 +12,7 @@ const FLOW: readonly { stage: PipelineStage; grid: string }[] = [
   return stage ? [{ stage, grid }] : [];
 });
 
-function StageBox({ stage, branch }: { stage: PipelineStage; branch?: string }) {
+function StageBox({ stage, branch }: { stage: PipelineStage; branch?: string | undefined }) {
   return <div className="flex min-h-20 flex-col justify-center border border-border bg-secondary px-2 py-2 text-center">
     {branch && <span className="mb-1 text-[9px] uppercase text-muted-foreground">{branch}</span>}
     <span className="text-[11px] font-semibold leading-tight">{stage.stage}</span>
