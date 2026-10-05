@@ -22,6 +22,7 @@ import { ALARMS } from "@/data/alarms";
 import { PriorityBadge } from "@/components/ui-hmi/PriorityBadge";
 import { RoleBadge } from "@/components/ui-hmi/RoleBadge";
 import { StatusChip } from "@/components/ui-hmi/StatusChip";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -38,7 +39,7 @@ const NAV = [
 ] as const;
 
 const ACTIVE_ALARMS = ALARMS.filter((a) => a.state.startsWith("Active"));
-const BANNER_ALARM = ALARMS.find((a) => a.id === "AL-0107")!;
+const BANNER_ALARM = ALARMS.find((a) => a.id === "AL-0107");
 
 function TopBar() {
   const r = META.activeRecipe;
@@ -87,6 +88,7 @@ function TopBar() {
 
 function AlarmBanner() {
   const [acknowledged, setAcknowledged] = useState(false);
+  if (!BANNER_ALARM) return null;
   return (
     <div className="flex h-9 shrink-0 items-center gap-3 border-b border-border bg-card px-3 text-xs">
       {!acknowledged && (
@@ -96,13 +98,15 @@ function AlarmBanner() {
           <span className="num text-muted-foreground">{BANNER_ALARM.id}</span>
           <span className="truncate font-medium text-foreground">{BANNER_ALARM.message}</span>
           <span className="num text-muted-foreground">{BANNER_ALARM.raisedAt}</span>
-          <button
+          <Button
             type="button"
             onClick={() => setAcknowledged(true)}
-            className="h-6 rounded-sm border border-foreground px-2 text-xs font-medium text-foreground hover:bg-accent"
+            variant="outline"
+            size="sm"
+            className="h-6 rounded-sm border-foreground bg-card px-2 text-xs shadow-none"
           >
             Acknowledge
-          </button>
+          </Button>
         </>
       )}
       <div className="flex-1" />
@@ -152,15 +156,16 @@ function LeftNav() {
           );
         })}
       </ul>
-      <button
+      <Button
         type="button"
         onClick={() => setCollapsed((c) => !c)}
         aria-label={collapsed ? "Expand navigation" : "Collapse navigation"}
-        className="flex h-9 items-center gap-3 border-t border-border px-5 text-xs text-muted-foreground hover:bg-sidebar-accent"
+        variant="ghost"
+        className="flex h-9 w-full justify-start gap-3 rounded-none border-t border-border px-5 text-xs text-muted-foreground shadow-none hover:bg-sidebar-accent"
       >
         {collapsed ? <ChevronsRight className="h-4 w-4" /> : <ChevronsLeft className="h-4 w-4" />}
         {!collapsed && "Collapse"}
-      </button>
+      </Button>
     </nav>
   );
 }
@@ -177,5 +182,3 @@ export function AppShell({ children }: { children: ReactNode }) {
     </div>
   );
 }
-
-export { Layers };
