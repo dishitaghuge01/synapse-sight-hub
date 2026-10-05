@@ -1,9 +1,10 @@
 import { ChevronRight } from "lucide-react";
 import { PanelCard } from "@/components/ui-hmi/PanelCard";
+import type { PipelineStage } from "@/data/pipeline";
 import { PIPELINE_BRANCHES, PIPELINE_FOOTER, PIPELINE_STAGES, PIPELINE_TOTAL_MS } from "@/data/pipeline";
 import { cn } from "@/lib/utils";
 
-const FLOW = [
+const FLOW: readonly { stage: PipelineStage; grid: string }[] = [
   { stage: PIPELINE_STAGES[0], grid: "col-start-1 row-span-2" },
   { stage: PIPELINE_STAGES[1], grid: "col-start-2 row-span-2" },
   { stage: PIPELINE_STAGES[2], grid: "col-start-3 row-start-1" },
@@ -14,7 +15,7 @@ const FLOW = [
   { stage: PIPELINE_STAGES[7], grid: "col-start-7 row-span-2" },
 ] as const;
 
-function StageBox({ stage, branch }: { stage: (typeof PIPELINE_STAGES)[number]; branch?: string }) {
+function StageBox({ stage, branch }: { stage: PipelineStage; branch?: string }) {
   return <div className="flex min-h-20 flex-col justify-center border border-border bg-secondary px-2 py-2 text-center">
     {branch && <span className="mb-1 text-[9px] uppercase text-muted-foreground">{branch}</span>}
     <span className="text-[11px] font-semibold leading-tight">{stage.stage}</span>

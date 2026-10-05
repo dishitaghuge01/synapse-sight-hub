@@ -22,7 +22,7 @@ export function BatchesPage() {
   const [selected, setSelected] = useState<Batch>();
   const [reportOpen, setReportOpen] = useState(false);
 
-  const rows = useMemo(() => BATCHES.filter((batch) => batch.lot.toLowerCase().includes(query.toLowerCase())).toSorted((a, b) => {
+  const rows = useMemo(() => [...BATCHES.filter((batch) => batch.lot.toLowerCase().includes(query.toLowerCase()))].sort((a: Batch, b: Batch) => {
     const comparison = a[sortKey] < b[sortKey] ? -1 : a[sortKey] > b[sortKey] ? 1 : 0;
     return ascending ? comparison : -comparison;
   }), [ascending, query, sortKey]);
