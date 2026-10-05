@@ -71,6 +71,9 @@
   --color-alarm-medium-foreground: var(--alarm-medium-foreground);
   --color-alarm-low: var(--alarm-low);
   --color-status-normal: var(--status-normal);
+  --color-frame-rgb: var(--frame-rgb);
+  --color-frame-reflectance: var(--frame-reflectance);
+  --color-frame-fluorescence: var(--frame-fluorescence);
   --font-sans: "IBM Plex Sans", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
@@ -103,6 +106,12 @@
   --alarm-medium-foreground: oklch(0.27 0.02 254);
   --alarm-low: oklch(0.55 0.1 205);
   --status-normal: oklch(0.6 0.01 250);
+  --frame-rgb: oklch(0.4 0.035 78);
+  --frame-reflectance: oklch(0.42 0.005 250);
+  --frame-fluorescence: oklch(0.24 0.045 155);
+  --frame-detail: oklch(0.8 0.01 250);
+  --frame-scan: oklch(0.7 0.12 200);
+  --frame-auto: oklch(0.7 0.14 140);
   --chart-1: oklch(0.48 0.13 255);
   --chart-2: oklch(0.55 0.1 205);
   --chart-3: oklch(0.46 0.025 252);
@@ -176,12 +185,24 @@
   to { transform: translateX(1000px); }
 }
 
+@keyframes waterfall-scroll {
+  from { transform: translateY(-66.666%); }
+  to { transform: translateY(0); }
+}
+
+@utility waterfall-stack {
+  animation: waterfall-scroll 12s linear infinite;
+}
+
 @utility conveyor-item {
   animation: conveyor-move 16s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .conveyor-item {
+    animation-play-state: paused;
+  }
+  .waterfall-stack {
     animation-play-state: paused;
   }
 }
