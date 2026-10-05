@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PlaceholderPage } from "@/pages/PlaceholderPage";
+export const Route = createFileRoute("/audit")({ head: () => ({ meta: [{ title: "Audit Trail | Synapse Inspect" }, { name: "description", content: "Operator and system audit trail." }, { property: "og:title", content: "Audit Trail | Synapse Inspect" }, { property: "og:description", content: "Operator and system audit trail." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <PlaceholderPage title="Audit Trail" /> });

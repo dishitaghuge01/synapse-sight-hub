@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlarmsRouteImport } from './routes/alarms'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as AuditRouteImport } from './routes/audit'
+import { Route as BatchesRouteImport } from './routes/batches'
+import { Route as CalibrationRouteImport } from './routes/calibration'
+import { Route as LiveRouteImport } from './routes/live'
+import { Route as PipelineRouteImport } from './routes/pipeline'
+import { Route as RecipesRouteImport } from './routes/recipes'
+import { Route as RigRouteImport } from './routes/rig'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlarmsRoute = AlarmsRouteImport.update({
+  id: '/alarms',
+  path: '/alarms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditRoute = AuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BatchesRoute = BatchesRouteImport.update({
+  id: '/batches',
+  path: '/batches',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalibrationRoute = CalibrationRouteImport.update({
+  id: '/calibration',
+  path: '/calibration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiveRoute = LiveRouteImport.update({
+  id: '/live',
+  path: '/live',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PipelineRoute = PipelineRouteImport.update({
+  id: '/pipeline',
+  path: '/pipeline',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecipesRoute = RecipesRouteImport.update({
+  id: '/recipes',
+  path: '/recipes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RigRoute = RigRouteImport.update({
+  id: '/rig',
+  path: '/rig',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alarms': typeof AlarmsRoute
+  '/analytics': typeof AnalyticsRoute
+  '/audit': typeof AuditRoute
+  '/batches': typeof BatchesRoute
+  '/calibration': typeof CalibrationRoute
+  '/live': typeof LiveRoute
+  '/pipeline': typeof PipelineRoute
+  '/recipes': typeof RecipesRoute
+  '/rig': typeof RigRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alarms': typeof AlarmsRoute
+  '/analytics': typeof AnalyticsRoute
+  '/audit': typeof AuditRoute
+  '/batches': typeof BatchesRoute
+  '/calibration': typeof CalibrationRoute
+  '/live': typeof LiveRoute
+  '/pipeline': typeof PipelineRoute
+  '/recipes': typeof RecipesRoute
+  '/rig': typeof RigRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alarms': typeof AlarmsRoute
+  '/analytics': typeof AnalyticsRoute
+  '/audit': typeof AuditRoute
+  '/batches': typeof BatchesRoute
+  '/calibration': typeof CalibrationRoute
+  '/live': typeof LiveRoute
+  '/pipeline': typeof PipelineRoute
+  '/recipes': typeof RecipesRoute
+  '/rig': typeof RigRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/alarms'
+    | '/analytics'
+    | '/audit'
+    | '/batches'
+    | '/calibration'
+    | '/live'
+    | '/pipeline'
+    | '/recipes'
+    | '/rig'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/alarms'
+    | '/analytics'
+    | '/audit'
+    | '/batches'
+    | '/calibration'
+    | '/live'
+    | '/pipeline'
+    | '/recipes'
+    | '/rig'
+  id:
+    | '__root__'
+    | '/'
+    | '/alarms'
+    | '/analytics'
+    | '/audit'
+    | '/batches'
+    | '/calibration'
+    | '/live'
+    | '/pipeline'
+    | '/recipes'
+    | '/rig'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlarmsRoute: typeof AlarmsRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  AuditRoute: typeof AuditRoute
+  BatchesRoute: typeof BatchesRoute
+  CalibrationRoute: typeof CalibrationRoute
+  LiveRoute: typeof LiveRoute
+  PipelineRoute: typeof PipelineRoute
+  RecipesRoute: typeof RecipesRoute
+  RigRoute: typeof RigRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/alarms': {
+      id: '/alarms'
+      path: '/alarms'
+      fullPath: '/alarms'
+      preLoaderRoute: typeof AlarmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit': {
+      id: '/audit'
+      path: '/audit'
+      fullPath: '/audit'
+      preLoaderRoute: typeof AuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/batches': {
+      id: '/batches'
+      path: '/batches'
+      fullPath: '/batches'
+      preLoaderRoute: typeof BatchesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calibration': {
+      id: '/calibration'
+      path: '/calibration'
+      fullPath: '/calibration'
+      preLoaderRoute: typeof CalibrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live': {
+      id: '/live'
+      path: '/live'
+      fullPath: '/live'
+      preLoaderRoute: typeof LiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pipeline': {
+      id: '/pipeline'
+      path: '/pipeline'
+      fullPath: '/pipeline'
+      preLoaderRoute: typeof PipelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recipes': {
+      id: '/recipes'
+      path: '/recipes'
+      fullPath: '/recipes'
+      preLoaderRoute: typeof RecipesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rig': {
+      id: '/rig'
+      path: '/rig'
+      fullPath: '/rig'
+      preLoaderRoute: typeof RigRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlarmsRoute: AlarmsRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  AuditRoute: AuditRoute,
+  BatchesRoute: BatchesRoute,
+  CalibrationRoute: CalibrationRoute,
+  LiveRoute: LiveRoute,
+  PipelineRoute: PipelineRoute,
+  RecipesRoute: RecipesRoute,
+  RigRoute: RigRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
