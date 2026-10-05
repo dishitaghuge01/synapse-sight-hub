@@ -16,7 +16,7 @@ export function CalibrationPage() {
   const complete = step === RECALIBRATION_STEPS.length;
 
   return <div className="grid grid-cols-12 gap-3">
-    <div className="col-span-5 space-y-3">
+    <div className="col-span-12 space-y-3 lg:col-span-5">
       <PanelCard title="Calibration status">
         <ValueRow label="Dark reference"><span className="num">age {CALIBRATION.darkReference.age}</span><PriorityBadge priority="medium" label={CALIBRATION.darkReference.state} /></ValueRow>
         <ValueRow label="White reference"><span className="num">age {CALIBRATION.whiteReference.age}</span><PriorityBadge priority="medium" label={CALIBRATION.whiteReference.state} /></ValueRow>
@@ -29,7 +29,7 @@ export function CalibrationPage() {
         <ValueRow label="Model"><span className="num">{CALIBRATION.model}</span></ValueRow>
       </PanelCard>
     </div>
-    <PanelCard title="Recalibration wizard" className="col-span-7">
+    <PanelCard title="Recalibration wizard" className="col-span-12 lg:col-span-7">
       <ol className="space-y-0">{RECALIBRATION_STEPS.map((label, index) => {
         const isComplete = index < step;
         const isCurrent = index === step;
